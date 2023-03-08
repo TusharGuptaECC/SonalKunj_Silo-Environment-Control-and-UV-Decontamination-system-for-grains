@@ -44,4 +44,8 @@
 #include "SonalKunj_sleep.h"
 #endif
 
+#ifdef WIFI_H
+#include "SonalKunj_wifi.h"
+#endif
+
 #endif
