@@ -4,8 +4,8 @@
 #define ONBOARD_SWITCH_H
 #define ADC_H
 #define PWM_H
-#define WATCHDOG_H
-#define SYSTICK_H
+// #define WATCHDOG_H
+// #define SYSTICK_H
 #define SLEEP_H
 #define WIFI_H
 
@@ -23,9 +23,9 @@ float settings[4] = {16,50,0.5,30};
 #define UV_pin 5 // port e
 
 //---------------------------------------------------------------
-#define AUTOMATIC_MODE 0
-#define MANUAL_MODE 1
-#define WIFI_CONTROL_MODE 2
+#define AUTOMATIC_MODE 1
+#define MANUAL_MODE 0
+//#define WIFI_CONTROL_MODE 2
 //---------------------------------------------------------------
 
 volatile uint32_t present_time = 0;
@@ -38,7 +38,7 @@ volatile float co2_data = 0;
  * system_state = 1 -> AUTOMATIC MODE
  * system_state = 2 -> WIFI_CONTROL MODE
  */
-volatile unsigned char system_state = 1;//AUTOMATIC_MODE;
+volatile unsigned char system_state = 0;//AUTOMATIC_MODE;
 
 void clockInit(unsigned char clk_src);
 void dhtInit(void);
@@ -96,27 +96,28 @@ void GPIOF_Handler(void)
 {
 	if (GPIOF->MIS & (1 << 4))
 	{
-		system_state = 1;
+		system_state ^= 1;
+		led(green_led, system_state);
 		GPIOF->ICR |= (1 << 4);
 	}
 }
 
-void SysTick_Handler(void)
-{
-	if (SysTick->CTRL & (1 << 16))
-  {
-    system_state = 1;
-    SysTick->CTRL = 0;  // disable the timer
-  }
-}
+// for debug purpose
+//void SysTick_Handler(void)
+//{
+//	if (SysTick->CTRL & (1 << 16))
+//  {
+//    system_state = 1;
+//    SysTick->CTRL = 0;  // disable the timer
+//  }
+//}
 
 int main(void)
 {
-	//unsigned char response;
 	clockInit(MOSC);
-	//gpioPinInit(GPIO, OUTPUT, blue_led);
 	gpioPinInit(GPIO, OUTPUT, green_led);
 	gpioPinInit(GPIO, OUTPUT, red_led);
+	onBoardSwitchInit(switch_one, rising_edge_mode_switch);
 	nextionInit();
 	heatingUnitInit();
 	fanInit();
@@ -130,14 +131,14 @@ int main(void)
 		{
 			automaticMode();
 		}
-		else if (system_state == MANUAL_MODE)
+		if (system_state == MANUAL_MODE)
 		{
 			manualMode();
 		}
-		else
-		{
-			wifiControlMode();
-		}
+//		if (system_state == WIFI_CONTROL_MODE)
+//		{
+//			wifiControlMode();
+//		}
 	}
 	return 0;
 }
@@ -336,7 +337,6 @@ void prepareForSleep(void)
 {
 	// prepare timer for wake-up
 	SYSCTL->RCGCWTIMER |= (1 << 5); 
-	onBoardSwitchInit(switch_one, rising_edge_mode_switch);
 	WTIMER5->CTL &= ~(1 << 0);// disable the timer
 	WTIMER5->CFG = 0;//64 bit mode
 	WTIMER5->TAMR |= 0x1;// one shot mode
@@ -373,24 +373,21 @@ void automaticMode(void)
 	prepareForSleep();
 	goToSleep(SLEEP_WAKEUP_WFI, SLEEP_MODE_DEEP);
 	led(red_led, OFF);
-	wifiUpdateDatabase(((dht_data >> 24) & 0x000000FF), ((dht_data >> 8) & 0x000000FF), 2.5);//co2_data
+	wifiUpdateDatabase(((dht_data >> 24) & 0x000000FF), ((dht_data >> 8) & 0x000000FF), co2_data);
 }
 
 void manualMode(void)
 {
 	unsigned char response = 0;
-// led(green_led, ON);
-// nextionInit();
-	while (1)
+	while (system_state != AUTOMATIC_MODE)
 	{
 		response = nextionRead_1();
 		if (response == 2)
 		{
-			led(green_led, OFF);
 			dhtInit();
 			dhtReadData();
 			adcInitAndReadData();
-			nextionSendSensorData(((dht_data >> 24) & 0x000000FF), ((dht_data >> 8) & 0x000000FF), 2.5);
+			nextionSendSensorData(((dht_data >> 24) & 0x000000FF), ((dht_data >> 8) & 0x000000FF), co2_data);
 		}
 		else if (response == 3)
 		{
@@ -444,95 +441,75 @@ void manualMode(void)
 				if (response == 200)
 				{
 					saveSettingsFromNextion();
-					//led(red_led, OFF);
 					break;
 				}
 			}
 		}
-		else//if (nextionRead_1() == 0)
+		else
 		{
-			led(green_led, OFF);
+		
 		}
 	}
 }
 
-void wifiControlMode(void)
-{
-	unsigned char response = 0;
-// led(green_led, ON);
-// nextionInit();
-	while (1)
-	{
-		response = uart_2_Receive();
-		if (response == 103)
-		{
-			led(green_led, OFF);
-			dhtInit();
-			dhtReadData();
-			adcInitAndReadData();
-			//nextionSendSensorData(((dht_data >> 24) & 0x000000FF), ((dht_data >> 8) & 0x000000FF), 2.5);
-			wifiUpdateDatabase(((dht_data >> 24) & 0x000000FF), ((dht_data >> 8) & 0x000000FF), 2.5);
-		}
-		else if (response == 104)
-		{
-			while (1)
-			{
-				response = nextionRead_1();
-				if (response == 6)
-				{
-					heatingUnitCtrl(ON);		
-				}
-				if (response == 7)
-				{
-					heatingUnitCtrl(OFF);
-				}
-				if (response == 8)
-				{
-					fanCtrl(ON);
-				}
-				if (response == 9)
-				{
-					fanCtrl(OFF);
-				}
-				if (response == 10)
-				{
-					UVCtrl(ON);
-				}
-				if (response == 11)
-				{
-					UVCtrl(OFF);
-				}
-				if (response == 12)
-				{
-					filoLidOpen();
-				}
-				if (response == 13)
-				{
-					filoLidClose();
-				}
-				if (response == 0x15)
-				{
-					break;
-				}
-			}
-		}
-		else if (response == 105)
-		{
-			nextionDisplayIdealData();
-			while (1)
-			{
-				response = nextionRead_2();
-				if (response == 200)
-				{
-					saveSettingsFromNextion();
-					//led(red_led, OFF);
-					break;
-				}
-			}
-		}
-		else//if (nextionRead_1() == 0)
-		{
-			led(green_led, OFF);
-		}
-	}
-}
+// unused code
+//void wifiControlMode(void)
+//{
+//	unsigned char response = 0;
+//	while (1)
+//	{
+//		response = uart_2_Receive();
+//		// read sensor data
+//		dhtInit();
+//		dhtReadData();
+//		adcInitAndReadData();
+//		// send the current sensor data
+//		wifiUpdateDatabase(((dht_data >> 24) & 0x000000FF), ((dht_data >> 8) & 0x000000FF), 2.5);//co2_data
+//		// send ideal conditions
+//		wifiUpdateDatabase((unsigned char)settings[1], (unsigned char)settings[0], 2.5);//co2_data
+//		if (response == 111)
+//		{
+//			heatingUnitCtrl(ON);		
+//		}
+//		if (response == 112)
+//		{
+//			heatingUnitCtrl(OFF);
+//		}
+//		if (response == 113)
+//		{
+//			fanCtrl(ON);
+//		}
+//		if (response == 114)
+//		{
+//			fanCtrl(OFF);
+//		}
+//		if (response == 115)
+//		{
+//			UVCtrl(ON);
+//		}
+//		if (response == 116)
+//		{
+//			UVCtrl(OFF);
+//		}
+//		if (response == 117)
+//		{
+//			filoLidOpen();
+//		}
+//		if (response == 118)
+//		{
+//			filoLidClose();
+//		}
+//		if (response == 119)
+//		{
+//			// user has pressed save
+//			settings[0] = wifiGetCommand();
+//			settings[1] = wifiGetCommand();
+//			settings[2] = wifiGetCommand();
+//			settings[3] = wifiGetCommand();
+//		}
+//		if (response == 120)
+//		{
+//			system_state = AUTOMATIC_MODE;
+//		}
+//	}
+//}
