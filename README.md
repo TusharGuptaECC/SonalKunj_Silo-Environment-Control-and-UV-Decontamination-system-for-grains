@@ -40,7 +40,16 @@ of sensors.
     - The system includes a login and authentication feature to restrict access to authorized personnel only. Password authentication is also required for making changes to crucial settings.
     - After fumigation, the system measures the concentration of PH3 gas and notifies the worker when it is safe to enter the warehouse.
     - The uniqueness of this solution lies in its decontamination facility using UV light. While most systems only monitor the environment and generate alerts, the IntelliSilo system actively regulates the environment itself and alerts the worker if human intervention is required. UV-C (germicidal ultraviolet light) can effectively kill various microorganisms such as bacteria, viruses, mold, mildew, and fungi.
-
+   
+- **CURRENT PROBLEMS**
+  - Misbehaviour while switching between automatic and manual modes.
+  - Only data logging facility to google sheets has been provided. No web dashboard for remote control. All Wifi Control mode is commented out in the main file.
+  - Additional equipments like relays are required to control the *temperature control units(TCU) and humidity control units(HCU)*. TCU and HCU are not fixed it depends upon factors like size of silo, budget, etc hence their power supply and other electronics component.
+  - Fumigation protection has not been implemented due to unavailibility of required PH3 sensors at the first phase of development.
+ 
+- **DEVELOPMENT CYCLE SCHEDULE**
+  - **Phase I**    : 01/02/2023 to 31/03/2023
+  - **Phase II**    : *comming soon* 
 
 
 
