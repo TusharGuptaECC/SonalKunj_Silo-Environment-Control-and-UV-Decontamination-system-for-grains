@@ -1,6 +1,6 @@
-# IntelliSilo (Environment Control and UV Decontamination system for grains ECUDSG)
+# SonalKunj_Silo (Environment Control and UV Decontamination system for grains ECUDSG)
 
-IntelliSilo is an Environment Control and UV Decontamination system designed for storing food grains in warehouses. The system leverages embedded systems and IoT technology to monitor and regulate the warehouse environment, ensuring optimal conditions for grain storage. It includes features such as temperature and humidity control, gas concentration monitoring, UV decontamination, and security measures.
+SonalKunj_Silo is an Environment Control and UV Decontamination system designed for storing food grains in warehouses. The system leverages embedded systems and IoT technology to monitor and regulate the warehouse environment, ensuring optimal conditions for grain storage. It includes features such as temperature and humidity control, gas concentration monitoring, UV decontamination, and security measures.
 
 - **Features**
   - Temperature monitoring and control
@@ -9,10 +9,10 @@ IntelliSilo is an Environment Control and UV Decontamination system designed for
   - UV decontamination of grains
   - Security and human disaster management system for fumigation problems
 - **Purpose**
-The IntelliSilo system addresses the challenges faced in traditional food grain storage facilities in India, where improper infrastructure and hygiene lead to significant grain wastage. By implementing the IntelliSilo system, the lifetime of food grains can be improved by regulating the storage environment. This helps prevent pest infestation, maintain appropriate temperature and humidity levels, and ensure proper fumigation.
+The SonalKunj_Silo system addresses the challenges faced in traditional food grain storage facilities in India, where improper infrastructure and hygiene lead to significant grain wastage. By implementing the SonalKunj_Silo system, the lifetime of food grains can be improved by regulating the storage environment. This helps prevent pest infestation, maintain appropriate temperature and humidity levels, and ensure proper fumigation.
 
 - **Getting Started**
-To get started with the IntelliSilo system, follow these steps:
+To get started with the SonalKunj_Silo system, follow these steps:
 
   - Install the necessary hardware components, including temperature and humidity sensors, gas concentration sensors, UV lights, and the main control PCB.
   - Configure the system parameters such as temperature and humidity thresholds according to the specific grain storage requirements.
@@ -20,7 +20,7 @@ To get started with the IntelliSilo system, follow these steps:
   - Ensure proper authentication and access control to restrict system access to authorized personnel only.
   - Set up the UV decontamination intervals and ensure worker safety by measuring the concentration of PH3 gas after fumigation.
 
-Please refer to the GitHub Wiki for detailed documentation, tutorials, and additional information about the IntelliSilo system.
+Please refer to the GitHub Wiki for detailed documentation, tutorials, and additional information about the SonalKunj_Silo system.
 
 - **Current Limitations**
 The project is currently in development, and the following aspects require further attention:
