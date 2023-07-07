@@ -26,11 +26,11 @@ humidity, and two for gas concentrations. But for large warehouses, we have to i
 of sensors.
 
   - FEATURES <br>
-   - Temperature monitor and Control
-   - Humidity Mointor and Control
-   - Gas concentration monitor and alert system
-   - UV decontamination
-   - Security & Human disaster management system for fumigation problems
+   -- Temperature monitor and Control
+   -- Humidity Mointor and Control
+   -- Gas concentration monitor and alert system
+   -- UV decontamination
+   -- Security & Human disaster management system for fumigation problems
 
   - DESCRIPTION <br>
    - The IntelliSilo system can be connected to temperature regulation units to maintain proper temperature, and the same can be done for humidity control as well.
