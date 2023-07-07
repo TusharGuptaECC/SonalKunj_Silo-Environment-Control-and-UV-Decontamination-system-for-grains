@@ -7,7 +7,7 @@ embedded systems and IoT. Embedded systems can be used for measuring environment
 like temperature, humidity, gas concentrations, etc. Than the gained data can be used to regulate the 
 environment of the food grains. With the help of IoT this data can be send to google sheets and then 
 can be distributed among scientists for analytics work.
-  - NEED FOR THIS SYSTEM
+  - NEED FOR THIS SYSTEM <br>
     India is a major producer of food grains, but about one-third of its food grains are wasted due to 
 improper warehouses and storage. Due to improper infrastructure indian warehouse lacks the 
 necessary condition for food storage. Due to improper hygiene grains are infected with pests and 
