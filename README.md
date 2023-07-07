@@ -15,44 +15,36 @@ improper warehouses and storage. Due to improper infrastructure indian warehouse
 necessary condition for food storage. Due to improper hygiene grains are infected with pests and 
 insects. Improper fumigation with gases like PH3 also affects the health of the workers. An 
 environment control and UV decontamination system for food grains can be added in current 
-warehouses that can improve the lifetime of these food grains.
-
-Like for example in case of wheat humidity shold be less than 10% otherwise chances of 
+warehouses that can improve the lifetime of these food grains. Like for example in case of wheat humidity shold be less than 10% otherwise chances of 
 getting moulds are very high. In summer temperature should be around 18 degrees and winter it 
 should be around 25 degrees.
 
- - SCALABILITY <br>
+  - SCALABILITY <br>
 In India, we have large warehouses for food grain storage where grains are stored in jute bags or 
 sometimes store in large heaps. Currently, this design has one sensor for temperature, one for 
 humidity, and two for gas concentrations. But for large warehouses, we have to increase the number 
 of sensors.
 
-- FEATURES <br>
- - Temperature monitor and Control
- - Humidity Mointor and Control
- - Gas concentration monitor and alert system
- - UV decontamination
- - Security & Human disaster management system for fumigation problems
+ - FEATURES <br>
+  - Temperature monitor and Control
+  - Humidity Mointor and Control
+  - Gas concentration monitor and alert system
+  - UV decontamination
+  - Security & Human disaster management system for fumigation problems
 
-- DESCRIPTION <br>
-The ECUDSG can be connected to the temperature regulation units to maintain the proper 
-temperature, the same can be done for humidity also. This system works when grains are stored in 
-the open(not in bags) as it also performs the decontamination of grains by exposing them to UV rays 
-for short(pre-defined) intervals of time. The system is connected to the internet and can send the 
-sensor data to google sheets for further analytics work.
-It also provides security as the main PCB is connected outside the warehouse so workers don't have 
-to go inside and check as all sensor data will be shown on the human-machine interface(HMI) 
-display itself. If she wants to change any setting then like temperature and humidity thresholds it is 
-also be done from this control pannel(main PCB).
-This system comes with login and authentication so any unauthenticated person can't enter the 
-warehouse. For making the change in any crucial settings also password is required.
-After fumigation, this system will also tell the worker when she can enter a warehouse by 
-measuring the concentration of PH3 gas. 
-The uniqueness of this solution is that it comes with a decontamination facility with UV light. Most 
-of the systems implemented today only monitor the environment and then generate the alert but 
-ECUDSG first tries to regulate the environment itself and then informs the worker if human 
-intervention is required. As we already know UV-C (germicidal ultraviolet light can be used to kill 
-various micro-organisms like bacteria, viruses, mold, mildew, and fungi).
+ - DESCRIPTION <br>
+  -The IntelliSilo system can be connected to temperature regulation units to maintain proper temperature, and the same can be done for humidity control as well.
+  -This system is designed for storing grains in an open environment (not in bags) and includes the decontamination of grains by exposing them to UV rays for predefined intervals.
+  -The system is connected to the internet and can send sensor data to Google Sheets for further analytics.
+  -It provides security by placing the main PCB outside the warehouse, allowing workers to view all sensor data on the Human-Machine Interface (HMI) display. Any necessary settings changes, such as temperature and humidity thresholds, can be made from this control panel (main PCB).
+  -The system includes a login and authentication feature to restrict access to authorized personnel only. Password authentication is also required for making changes to crucial settings.
+  -After fumigation, the system measures the concentration of PH3 gas and notifies the worker when it is safe to enter the warehouse.
+  -The uniqueness of this solution lies in its decontamination facility using UV light. While most systems only monitor the environment and generate alerts, the IntelliSilo system actively regulates the environment itself and alerts the worker if human intervention is required. UV-C (germicidal ultraviolet light) can effectively kill various microorganisms such as bacteria, viruses, mold, mildew, and fungi.
+
+
+
+
+
 
 
 
