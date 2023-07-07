@@ -31,6 +31,6 @@ The project is currently in development, and the following aspects require furth
   - Fumigation protection has not been implemented in the initial development phase due to the unavailability of required PH3 sensors.
 
  - **Development Cycle Schedule**
-  - Phase I: 01/02/2023 to 31/03/2023
-  - Phase II: Coming soon
-For more details, refer to the GitHub Wiki and the project's documentation.
+   - Phase I: 01/02/2023 to 31/03/2023
+   - Phase II: Coming soon
+For more details, refer to the [GitHub Wiki](https://github.com/TusharGuptaECC/SonalKunj_Silo-Environment-Control-and-UV-Decontamination-system-for-grains/wiki) and the project's documentation.
