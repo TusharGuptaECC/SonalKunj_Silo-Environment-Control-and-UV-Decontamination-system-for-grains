@@ -20,7 +20,7 @@ To get started with the SonalKunj_Silo system, follow these steps:
   - Ensure proper authentication and access control to restrict system access to authorized personnel only.
   - Set up the UV decontamination intervals and ensure worker safety by measuring the concentration of PH3 gas after fumigation.
 
-Please refer to the GitHub Wiki for detailed documentation, tutorials, and additional information about the SonalKunj_Silo system.
+Please refer to the [GitHub Wiki](https://github.com/TusharGuptaECC/SonalKunj_Silo-Environment-Control-and-UV-Decontamination-system-for-grains/wiki) for detailed documentation, tutorials, and additional information about the SonalKunj_Silo system.
 
 - **Current Limitations**
 The project is currently in development, and the following aspects require further attention:
