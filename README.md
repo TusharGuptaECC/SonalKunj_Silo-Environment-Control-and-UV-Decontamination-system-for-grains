@@ -33,13 +33,13 @@ of sensors.
     - Security & Human disaster management system for fumigation problems
 
   - DESCRIPTION <br>
-   - The IntelliSilo system can be connected to temperature regulation units to maintain proper temperature, and the same can be done for humidity control as well.
-   - This system is designed for storing grains in an open environment (not in bags) and includes the decontamination of grains by exposing them to UV rays for predefined intervals.
-   - The system is connected to the internet and can send sensor data to Google Sheets for further analytics.
-   - It provides security by placing the main PCB outside the warehouse, allowing workers to view all sensor data on the Human-Machine Interface (HMI) display. Any necessary settings changes, such as temperature and humidity thresholds, can be made from this control panel (main PCB).
-   - The system includes a login and authentication feature to restrict access to authorized personnel only. Password authentication is also required for making changes to crucial settings.
-   - After fumigation, the system measures the concentration of PH3 gas and notifies the worker when it is safe to enter the warehouse.
-   - The uniqueness of this solution lies in its decontamination facility using UV light. While most systems only monitor the environment and generate alerts, the IntelliSilo system actively regulates the environment itself and alerts the worker if human intervention is required. UV-C (germicidal ultraviolet light) can effectively kill various microorganisms such as bacteria, viruses, mold, mildew, and fungi.
+    - The IntelliSilo system can be connected to temperature regulation units to maintain proper temperature, and the same can be done for humidity control as well.
+    - This system is designed for storing grains in an open environment (not in bags) and includes the decontamination of grains by exposing them to UV rays for predefined intervals.
+    - The system is connected to the internet and can send sensor data to Google Sheets for further analytics.
+    - It provides security by placing the main PCB outside the warehouse, allowing workers to view all sensor data on the Human-Machine Interface (HMI) display. Any necessary settings changes, such as temperature and humidity thresholds, can be made from this control panel (main PCB).
+    - The system includes a login and authentication feature to restrict access to authorized personnel only. Password authentication is also required for making changes to crucial settings.
+    - After fumigation, the system measures the concentration of PH3 gas and notifies the worker when it is safe to enter the warehouse.
+    - The uniqueness of this solution lies in its decontamination facility using UV light. While most systems only monitor the environment and generate alerts, the IntelliSilo system actively regulates the environment itself and alerts the worker if human intervention is required. UV-C (germicidal ultraviolet light) can effectively kill various microorganisms such as bacteria, viruses, mold, mildew, and fungi.
 
 
 
