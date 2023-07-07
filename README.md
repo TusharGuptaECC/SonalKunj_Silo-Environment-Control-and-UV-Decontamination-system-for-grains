@@ -1,61 +1,36 @@
 # IntelliSilo (Environment Control and UV Decontamination system for grains ECUDSG)
 
-- **INTRODUCTION**
-  - We can build a smart warehouse where we can 
-implement an environment control and ultraviolet light decontamination system for survillance of 
-the food grains. This system can be easily implemented with the help of current technology like 
-embedded systems and IoT. Embedded systems can be used for measuring environmental factors 
-like temperature, humidity, gas concentrations, etc. Than the gained data can be used to regulate the 
-environment of the food grains. With the help of IoT this data can be send to google sheets and then 
-can be distributed among scientists for analytics work.
+IntelliSilo is an Environment Control and UV Decontamination system designed for storing food grains in warehouses. The system leverages embedded systems and IoT technology to monitor and regulate the warehouse environment, ensuring optimal conditions for grain storage. It includes features such as temperature and humidity control, gas concentration monitoring, UV decontamination, and security measures.
 
-  - **Need For The System** <br>
-    India is a major producer of food grains, but about one-third of its food grains are wasted due to 
-improper warehouses and storage. Due to improper infrastructure indian warehouse lacks the 
-necessary condition for food storage. Due to improper hygiene grains are infected with pests and 
-insects. Improper fumigation with gases like PH3 also affects the health of the workers. An 
-environment control and UV decontamination system for food grains can be added in current 
-warehouses that can improve the lifetime of these food grains. Like for example in case of wheat humidity shold be less than 10% otherwise chances of 
-getting moulds are very high. In summer temperature should be around 18 degrees and winter it 
-should be around 25 degrees.
+- **Features**
+  - Temperature monitoring and control
+  - Humidity monitoring and control
+  - Gas concentration monitoring and alert system
+  - UV decontamination of grains
+  - Security and human disaster management system for fumigation problems
+- **Purpose**
+The IntelliSilo system addresses the challenges faced in traditional food grain storage facilities in India, where improper infrastructure and hygiene lead to significant grain wastage. By implementing the IntelliSilo system, the lifetime of food grains can be improved by regulating the storage environment. This helps prevent pest infestation, maintain appropriate temperature and humidity levels, and ensure proper fumigation.
 
-   - **Scalability** <br>
-In India, we have large warehouses for food grain storage where grains are stored in jute bags or 
-sometimes store in large heaps. Currently, this design has one sensor for temperature, one for 
-humidity, and two for gas concentrations. But for large warehouses, we have to increase the number 
-of sensors.
+- **Getting Started**
+To get started with the IntelliSilo system, follow these steps:
 
-  - **Features** <br>
-    - Temperature monitor and Control
-    - Humidity Mointor and Control
-    - Gas concentration monitor and alert system
-    - UV decontamination
-    - Security & Human disaster management system for fumigation problems
+  - Install the necessary hardware components, including temperature and humidity sensors, gas concentration sensors, UV lights, and the main control PCB.
+  - Configure the system parameters such as temperature and humidity thresholds according to the specific grain storage requirements.
+  - Connect the system to the internet to enable data transmission to Google Sheets for further analytics and monitoring.
+  - Ensure proper authentication and access control to restrict system access to authorized personnel only.
+  - Set up the UV decontamination intervals and ensure worker safety by measuring the concentration of PH3 gas after fumigation.
 
-  - **Description** <br>
-    - The IntelliSilo system can be connected to temperature regulation units to maintain proper temperature, and the same can be done for humidity control as well.
-    - This system is designed for storing grains in an open environment (not in bags) and includes the decontamination of grains by exposing them to UV rays for predefined intervals.
-    - The system is connected to the internet and can send sensor data to Google Sheets for further analytics.
-    - It provides security by placing the main PCB outside the warehouse, allowing workers to view all sensor data on the Human-Machine Interface (HMI) display. Any necessary settings changes, such as temperature and humidity thresholds, can be made from this control panel (main PCB).
-    - The system includes a login and authentication feature to restrict access to authorized personnel only. Password authentication is also required for making changes to crucial settings.
-    - After fumigation, the system measures the concentration of PH3 gas and notifies the worker when it is safe to enter the warehouse.
-    - The uniqueness of this solution lies in its decontamination facility using UV light. While most systems only monitor the environment and generate alerts, the IntelliSilo system actively regulates the environment itself and alerts the worker if human intervention is required. UV-C (germicidal ultraviolet light) can effectively kill various microorganisms such as bacteria, viruses, mold, mildew, and fungi.
-   
-- **CURRENT PROBLEMS**
-  - Misbehaviour while switching between automatic and manual modes.
-  - Only data logging facility to google sheets has been provided. No web dashboard for remote control. All Wifi Control mode is commented out in the main file.
-  - Additional equipments like relays are required to control the *temperature control units(TCU) and humidity control units(HCU)*. TCU and HCU are not fixed it depends upon factors like size of silo, budget, etc hence their power supply and other electronics component.
-  - Fumigation protection has not been implemented due to unavailibility of required PH3 sensors at the first phase of development.
- 
-- **DEVELOPMENT CYCLE SCHEDULE**
-  - **Phase I**    : 01/02/2023 to 31/03/2023
-  - **Phase II**    : *comming soon* 
+Please refer to the GitHub Wiki for detailed documentation, tutorials, and additional information about the IntelliSilo system.
 
+- **Current Limitations**
+The project is currently in development, and the following aspects require further attention:
 
+  - Switching between automatic and manual modes may exhibit some unexpected behavior.
+  - The project currently provides data logging to Google Sheets but does not include a web dashboard for remote control.
+  - Additional equipment, such as relays, may be required to control temperature and humidity regulation units (TCU and HCU).
+  - Fumigation protection has not been implemented in the initial development phase due to the unavailability of required PH3 sensors.
 
-
-
-
-
-
-
+ - **Development Cycle Schedule**
+  - Phase I: 01/02/2023 to 31/03/2023
+  - Phase II: Coming soon
+For more details, refer to the GitHub Wiki and the project's documentation.
