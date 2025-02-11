@@ -1,4 +1,4 @@
-# SonalKunj_Silo (Environment Control and UV Decontamination system for grains ECUDSG)
+# SonalKunj_Silo (Environment Control and UV Decontamination system for grains)
 
 SonalKunj_Silo is an Environment Control and UV Decontamination system designed for storing food grains in warehouses. The system leverages embedded systems and IoT technology to monitor and regulate the warehouse environment, ensuring optimal conditions for grain storage. It includes features such as temperature and humidity control, gas concentration monitoring, UV decontamination, and security measures.
 
